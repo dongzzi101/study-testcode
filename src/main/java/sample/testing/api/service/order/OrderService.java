@@ -3,7 +3,7 @@ package sample.testing.api.service.order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sample.testing.api.controller.order.request.OrderCreateRequest;
+import sample.testing.api.service.order.request.OrderCreateServiceRequest;
 import sample.testing.api.service.order.response.OrderResponse;
 import sample.testing.domain.order.Order;
 import sample.testing.domain.order.OrderRepository;
@@ -28,7 +28,7 @@ public class OrderService {
     private final ProductRepository productRepository;
     private final StockRepository stockRepository;
 
-    public OrderResponse createOrder(OrderCreateRequest orderCreateRequest, LocalDateTime registeredDateTime) {
+    public OrderResponse createOrder(OrderCreateServiceRequest orderCreateRequest, LocalDateTime registeredDateTime) {
         List<String> productNumbers = orderCreateRequest.getProductNumbers();
         List<Product> products = findProductsBy(productNumbers);
 

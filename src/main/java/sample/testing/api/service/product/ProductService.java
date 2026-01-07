@@ -3,7 +3,7 @@ package sample.testing.api.service.product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sample.testing.api.controller.product.dto.request.ProductCreateRequest;
+import sample.testing.api.service.product.request.ProductCreateServiceRequest;
 import sample.testing.api.service.product.response.ProductResponse;
 import sample.testing.domain.product.Product;
 import sample.testing.domain.product.ProductRepository;
@@ -27,7 +27,7 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     @Transactional
-    public ProductResponse createProduct(ProductCreateRequest productCreateRequest) {
+    public ProductResponse createProduct(ProductCreateServiceRequest productCreateRequest) {
         String nextProductNumber = createNextProductNumber();
 
         Product product = productCreateRequest.toEntity(nextProductNumber);
